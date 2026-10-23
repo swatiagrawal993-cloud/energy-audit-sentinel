@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Campus Energy Sentinel | Clean-Tech Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Ambient Glow Accents -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Sleek Glass Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title-row">
+            <h1>Campus Energy Sentinel</h1>
+            <span class="version-tag">v2.4 • BCA Project</span>
+          </div>
+          <span class="brand-desc">IT Infrastructure Telemetry & Eco-Optimizer</span>
+        </div>
+      </div>
+
+      <!-- Segmented Navigation Tabs to Eliminate Clutter -->
+      <nav class="nav-tabs">
+        <a href="index.html" class="tab-btn active">Live Measuring</a>
+        <a href="standards.html" class="tab-btn">ACPI Standards</a>
+        <a href="about.html" class="tab-btn">About Project</a>
+        <a href="contact.html" class="tab-btn">Contact & Support</a>
+        <button class="tab-btn active" onclick="switchTab('dashboard')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Live Measuring
+        </button>
+        <button class="tab-btn" onclick="switchTab('schedule')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Power Schedule
+        </button>
+        <button class="tab-btn" onclick="switchTab('benchmarks')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          ACPI Standards
+        </button>
+      </nav>
+
+      <div class="nav-status">
+        <span class="live-dot"></span>
+        <span class="live-label">Measuring Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="main-wrapper">
+
+    <!-- VIEW 1: LIVE MEASURING & AUDIT DASHBOARD -->
+    <section id="view-dashboard" class="tab-view active">
+      <!-- Quick Lab Preset Selector Strip -->
+      <div class="preset-card">
+        <span class="preset-title">Select Lab Preset:</span>
+        <div class="preset-grid">
+          <button class="preset-chip active" onclick="applyPreset('standard')">
+            <span class="chip-icon">💻</span>
+            <div class="chip-text">
+              <strong>BCA Main Lab</strong>
+              <small>50 PCs • 120W Standard</small>
+            </div>
+          </button>
+          <button class="preset-chip" onclick="applyPreset('ai')">
+            <span class="chip-icon">🚀</span>
+            <div class="chip-text">
+              <strong>AI & Graphics Lab</strong>
+              <small>30 Dev Nodes • 200W</small>
+            </div>
+          </button>
+          <button class="preset-chip" onclick="applyPreset('library')">
+            <span class="chip-icon">📚</span>
+            <div class="chip-text">
+              <strong>Digital Library</strong>
+              <small>40 Thin Clients • 85W</small>
+            </div>
+          </button>
+          <button class="preset-chip" onclick="applyPreset('server')">
+            <span class="chip-icon">🖥️</span>
+            <div class="chip-text">
+              <strong>Server Cluster</strong>
+              <small>10 Rack Units • 350W</small>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Core 2-Column Split: Controls on Left, Metrics & Gauge on Right -->
+      <div class="dashboard-columns">
+
+        <!-- Left Column: Control Console -->
+        <div class="glass-card control-console">
+          <div class="card-head">
+            <h3>Laboratory Hardware Parameters</h3>
+            <p>Adjust variables to simulate real-time energy dissipation</p>
+          </div>
+
+          <div class="form-body">
+            <div class="input-block">
+              <label for="labName">Facility Identification</label>
+              <input type="text" id="labName" value="Computer Science Lab 1 (BCA)" placeholder="e.g. Lab 1">
+            </div>
+
+            <div class="input-block">
+              <label for="pcType">Workstation Hardware Profile</label>
+              <select id="pcType" onchange="calculateMeasuring()">
+                <option value="120">Standard Practical PC (Core i5, 16GB, 21" LED) — 120W</option>
+                <option value="200">High-Performance Dev Workstation (Core i7, GPU) — 200W</option>
+                <option value="350">Department Server / CAD Unit — 350W</option>
+                <option value="85">Energy-Efficient Thin Client — 85W</option>
+              </select>
+            </div>
+
+            <!-- Range Slider 1: Terminal Count -->
+            <div class="slider-block">
+              <div class="slider-meta">
+                <span class="slider-label">Connected Terminals</span>
+                <span class="slider-val-badge" id="pcCountVal">50 PCs</span>
+              </div>
+              <input type="range" id="pcCount" min="5" max="150" step="5" value="50" oninput="syncRange('pcCount', 'pcCountVal', ' PCs')">
+              <div class="range-sub"><span>5 Min</span><span>150 Max</span></div>
+            </div>
+
+            <!-- Range Slider 2: Active Hours -->
+            <div class="slider-block">
+              <div class="slider-meta">
+                <span class="slider-label">Active Practical Hours</span>
+                <span class="slider-val-badge emerald" id="activeHoursVal">4.5 hrs/day</span>
+              </div>
+              <input type="range" id="activeHours" min="1" max="10" step="0.5" value="4.5" oninput="syncRange('activeHours', 'activeHoursVal', ' hrs/day')">
+              <div class="range-sub"><span>1 hr</span><span>10 hrs</span></div>
+            </div>
+
+            <!-- Range Slider 3: Idle Waste Hours -->
+            <div class="slider-block">
+              <div class="slider-meta">
+                <span class="slider-label">Unscheduled Idle Gap</span>
+                <span class="slider-val-badge red" id="idleHoursVal">3.5 hrs/day</span>
+              </div>
+              <input type="range" id="idleHours" min="0" max="8" step="0.5" value="3.5" oninput="syncRange('idleHours', 'idleHoursVal', ' hrs/day')">
+              <div class="range-sub"><span>0 hrs</span><span>8 hrs</span></div>
+            </div>
+
+            <!-- Advanced Settings Accordion -->
+            <details class="advanced-settings">
+              <summary>
+                <span>Tariff & Emission Parameters</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <div class="advanced-fields">
+                <div class="field-row">
+                  <div>
+                    <label for="tariff">Commercial Tariff (₹/kWh)</label>
+                    <input type="number" id="tariff" value="9.0" step="0.5" oninput="calculateMeasuring()">
+                  </div>
+                  <div>
+                    <label for="workingDays">Days / Month</label>
+                    <input type="number" id="workingDays" value="26" min="1" max="31" oninput="calculateMeasuring()">
+                  </div>
+                </div>
+                <div class="field-single">
+                  <label for="emissionFactor">CEA Grid Carbon Factor (kg CO₂/kWh)</label>
+                  <input type="number" id="emissionFactor" value="0.82" step="0.01" oninput="calculateMeasuring()">
+                </div>
+              </div>
+            </details>
+
+            <button class="primary-btn" onclick="calculateMeasuring()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              Recompute Measuring
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Visual Measuring & Metrics -->
+        <div class="measuring-display">
+
+          <!-- Hero Gauge & Health Bar -->
+          <div class="glass-card health-banner">
+            <div class="gauge-wrapper">
+              <svg class="radial-gauge" viewBox="0 0 36 36">
+                <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path class="gauge-fill" id="gaugeCircle" stroke-dasharray="64, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              </svg>
+              <div class="gauge-number" id="gaugePct">64%</div>
+            </div>
+
+            <div class="health-meta">
+              <div class="health-tag" id="healthStatusTag">Moderate Energy Leakage</div>
+              <h2 id="targetLabHeader">Computer Science Lab 1 (BCA)</h2>
+              <p id="healthDesc">Terminals draw 54W baseline during idle lecture gaps. Automated S3 sleep recommended.</p>
+            </div>
+          </div>
+
+          <!-- 4 Core Metric Stat Tiles -->
+          <div class="tiles-grid">
+            <div class="stat-tile tile-blue">
+              <div class="tile-top">
+                <span class="tile-caption">Peak Connected Load</span>
+                <span class="tile-icon-box">⚡</span>
+              </div>
+              <div class="tile-value" id="outPeakLoad">6.0 kW</div>
+              <span class="tile-foot">Full hardware capacity</span>
+            </div>
+
+            <div class="stat-tile tile-purple">
+              <div class="tile-top">
+                <span class="tile-caption">Monthly Energy Drain</span>
+                <span class="tile-icon-box">🔋</span>
+              </div>
+              <div class="tile-value" id="outTotalKwh">948 kWh</div>
+              <span class="tile-foot">Active + Idle runtime</span>
+            </div>
+
+            <div class="stat-tile tile-red">
+              <div class="tile-top">
+                <span class="tile-caption">Monthly Wasted Cost</span>
+                <span class="tile-icon-box alert-icon">₹</span>
+              </div>
+              <div class="tile-value text-red" id="outWasteCost">₹ 2,211</div>
+              <span class="tile-foot text-red" id="outWasteKwh">246 kWh unutilized waste</span>
+            </div>
+
+            <div class="stat-tile tile-green">
+              <div class="tile-top">
+                <span class="tile-caption">Carbon Footprint</span>
+                <span class="tile-icon-box">🌿</span>
+              </div>
+              <div class="tile-value text-green" id="outCarbon">777 kg CO₂</div>
+              <span class="tile-foot" id="outTreesEquivalent">Requires ~35 trees to offset</span>
+            </div>
+          </div>
+
+          <!-- Interactive Live Optimization Simulator Switch -->
+          <div class="glass-card optimization-simulator">
+            <div class="sim-header">
+              <div class="sim-info">
+                <h4>Simulate Automated Power-Cycling</h4>
+                <p>Toggle automated S3 sleep and evening shutdown to preview institutional recovery</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="simToggle" onchange="toggleSimulation()">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="sim-result-box" id="simResultBox">
+              <div class="sim-pill">Savings Potential:</div>
+              <div class="sim-text" id="simText">
+                Toggle the switch above to preview immediate electrical savings.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: POWER-CYCLING SCHEDULE TIMELINE -->
+    <section id="view-schedule" class="tab-view">
+      <div class="glass-card wide-card">
+        <div class="card-head center-head">
+          <span class="section-badge">Academic Timetable Alignment</span>
+          <h2>Automated Power-Cycling Execution Timeline</h2>
+          <p>Engineered to synchronize with collegiate lecture schedules and practical shift blocks</p>
+        </div>
+
+        <div class="linear-timeline">
+          <div class="time-node active-node">
+            <div class="node-marker">1</div>
+            <div class="node-content">
+              <div class="node-top">
+                <strong>08:30 AM – 01:00 PM</strong>
+                <span class="status-chip chip-green">ACPI S0 Active</span>
+              </div>
+              <h4>Morning Student Practical Shift</h4>
+              <p>Workstations operate at full instructional capacity for C Programming & Web Development. Display sleep triggers after 5 minutes of inactivity.</p>
+            </div>
+          </div>
+
+          <div class="time-node sleep-node">
+            <div class="node-marker">2</div>
+            <div class="node-content">
+              <div class="node-top">
+                <strong>01:00 PM – 02:00 PM</strong>
+                <span class="status-chip chip-amber">ACPI S3 Suspend</span>
+              </div>
+              <h4>Institutional Recess & Lunch Gap</h4>
+              <p>Automated network standby command dispatched. All 50 terminals drop from 120W to &lt; 5W while preserving open student IDE workspaces in RAM.</p>
+            </div>
+          </div>
+
+          <div class="time-node active-node">
+            <div class="node-marker">3</div>
+            <div class="node-content">
+              <div class="node-top">
+                <strong>02:00 PM – 04:30 PM</strong>
+                <span class="status-chip chip-green">ACPI S0 Active</span>
+              </div>
+              <h4>Afternoon Project Development Shift</h4>
+              <p>Immediate instant-wake restored as students resume practical exams, database projects, and laboratory evaluation.</p>
+            </div>
+          </div>
+
+          <div class="time-node off-node">
+            <div class="node-marker">4</div>
+            <div class="node-content">
+              <div class="node-top">
+                <strong>04:30 PM Onward</strong>
+                <span class="status-chip chip-red">ACPI S5 Soft-Off</span>
+              </div>
+              <h4>Evening Curfew Automated Shutdown</h4>
+              <p>Centralized script executes clean OS shutdown. Subsystem power draws drop to ~0W, eliminating phantom vampire draw overnight.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: ACPI STANDARDS REFERENCE -->
+    <section id="view-benchmarks" class="tab-view">
+      <div class="glass-card wide-card">
+        <div class="card-head center-head">
+          <span class="section-badge">IEEE & ACPI Specifications</span>
+          <h2>Hardware Power Dissipation Ground Truth</h2>
+          <p>Scientific benchmarks derived from IEEE 1680.1 and Energy Star educational IT standards</p>
+        </div>
+
+        <div class="standards-grid">
+          <div class="standard-card">
+            <div class="std-badge s0">G0 / S0 State</div>
+            <h3>Active Execution</h3>
+            <div class="std-draw">107W – 162W</div>
+            <p>CPU, RAM, storage, and LED backlights fully energized. Maintained during practical lectures.</p>
+          </div>
+
+          <div class="standard-card">
+            <div class="std-badge idle">G0 / S0 Desktop Idle</div>
+            <h3>Unattended Desktop</h3>
+            <div class="std-draw">65W – 80W</div>
+            <p>OS running with no student active compute. Draws ~45% of peak wattage. Represents the primary target of waste reduction.</p>
+          </div>
+
+          <div class="standard-card">
+            <div class="std-badge s3">G1 / S3 Suspend</div>
+            <h3>Low-Power Sleep</h3>
+            <div class="std-draw">3.5W – 5.5W</div>
+            <p>CPU halted, display off. RAM energized to preserve session state. Cuts power draw by 95% during breaks.</p>
+          </div>
+
+          <div class="standard-card">
+            <div class="std-badge s5">G2 / S5 Soft-Off</div>
+            <h3>Complete Shutdown</h3>
+            <div class="std-draw">0.7W – 1.7W</div>
+            <p>Operating system halted; power rail disengaged except for real-time clock and network wake circuitry.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p><strong>Campus Energy Sentinel</strong> • Academic Green Computing Framework Project</p>
+      <p>Department of Computer Applications • St. Paul's Institute of Professional Studies (SPIPS) Curriculum</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

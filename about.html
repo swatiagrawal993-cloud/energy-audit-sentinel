@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Project | Campus Energy Sentinel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Unified Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title-row">
+            <h1>Campus Energy Sentinel</h1>
+            <span class="version-tag">v2.4 • BCA Project</span>
+          </div>
+          <span class="brand-desc">IT Infrastructure Measuring & Eco-Optimizer</span>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <a href="index.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Live Measuring
+        </a>
+        <a href="standards.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          ACPI Standards
+        </a>
+        <a href="about.html" class="tab-btn active">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          About Project
+        </a>
+        <a href="contact.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Contact & Support
+        </a>
+      </nav>
+
+      <div class="nav-status">
+        <span class="live-dot"></span>
+        <span class="live-label">Measuring Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    <div class="glass-card wide-card">
+      <div class="card-head center-head">
+        <span class="section-badge">Academic Project Overview</span>
+        <h2>About Smart Campus Energy Sentinel</h2>
+        <p>A client-side green computing framework for collegiate computer application laboratories</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-section">
+          <h3>1. Project Background & Rationale</h3>
+          <p>
+            Collegiate institutions house hundreds of personal computers across practical laboratories, digital libraries, and server rooms. Because timetables alternate between theory classes and practical sessions, workstations sit unattended for 3 to 4 hours daily at an active desktop, continuously dissipating 50W to 65W of unutilized electrical load per terminal.
+          </p>
+          <p>
+            The <strong>Campus Energy Sentinel</strong> was developed as a BCA Semester I initiative to bridge this visibility gap, transforming unmonitored IT facilities into measurable, energy-optimized environments.
+          </p>
+        </div>
+
+        <div class="about-section">
+          <h3>2. Key Academic Objectives</h3>
+          <ul class="styled-list">
+            <li><strong>Empirical Measuring:</strong> Quantify active and idle power consumption in kilowatt-hours (kWh) across collegiate hardware profiles.</li>
+            <li><strong>Fiscal Accountability:</strong> Model unmitigated monetary waste in Indian Rupees (₹) based on commercial state electricity board tariffs.</li>
+            <li><strong>Carbon Accounting:</strong> Convert electrical waste into atmospheric carbon metrics (kg CO₂) using official Central Electricity Authority (CEA) baselines.</li>
+            <li><strong>Automated Power-Cycling:</strong> Introduce actionable timetables aligned with ACPI S0 (Active), S3 (Suspend to RAM), and S5 (Soft-Off) power states.</li>
+          </ul>
+        </div>
+
+        <div class="about-section">
+          <h3>3. Software Architecture & Technology Stack</h3>
+          <p>The system executes entirely on the client side without external runtime or server requirements:</p>
+          <div class="tech-stack-row">
+            <div class="tech-pill"><strong>HTML5:</strong> Semantic UI Structure & Accessibility</div>
+            <div class="tech-pill"><strong>CSS3:</strong> Modern Glassmorphic Dark-Slate Theme</div>
+            <div class="tech-pill"><strong>JavaScript (ES6):</strong> Deterministic Measuring Engine</div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h3>4. Curriculum & Academic Credits</h3>
+          <p>
+            Submitted in partial fulfillment of the requirements for the award of the degree of <strong>Bachelor of Computer Applications (BCA) - Semester I</strong> under the format specification <strong>FORMATP4</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p><strong>Campus Energy Sentinel</strong> • Academic Green Computing Framework</p>
+      <p>Department of Computer Applications • BCA Semester 1 Project Deliverable</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Support | Campus Energy Sentinel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Unified Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title-row">
+            <h1>Campus Energy Sentinel</h1>
+            <span class="version-tag">v2.4 • BCA Project</span>
+          </div>
+          <span class="brand-desc">IT Infrastructure Measuring & Eco-Optimizer</span>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <a href="index.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Live Measuring
+        </a>
+        <a href="standards.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          ACPI Standards
+        </a>
+        <a href="about.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          About Project
+        </a>
+        <a href="contact.html" class="tab-btn active">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Contact & Support
+        </a>
+      </nav>
+
+      <div class="nav-status">
+        <span class="live-dot"></span>
+        <span class="live-label">Measuring Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    <div class="glass-card wide-card">
+      <div class="card-head center-head">
+        <span class="section-badge">Technical Feedback & Assistance</span>
+        <h2>Department Support & Contact</h2>
+        <p>Submit laboratory audit inquiries or suggest power-cycling schedule revisions</p>
+      </div>
+
+      <div class="contact-split">
+        <div class="contact-info-card">
+          <h3>Department Information</h3>
+          <p>For official laboratory energy audits, hardware inventory logs, or green campus certification data, contact the laboratory coordination cell:</p>
+
+          <div class="info-item">
+            <span class="info-label">Institution:</span>
+            <strong>Department of Computer Applications</strong>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Academic Program:</span>
+            <strong>Bachelor of Computer Applications (BCA) - Semester I</strong>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Target Facility:</span>
+            <strong>Central Computing Complex & BCA Laboratories</strong>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Project Domain:</span>
+            <strong>Green Computing & Energy Footprint Optimization</strong>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3>Laboratory Audit Feedback</h3>
+          <form onsubmit="handleContactSubmit(event)">
+            <div class="input-block">
+              <label for="attendantName">Your Name / Designation</label>
+              <input type="text" id="attendantName" placeholder="e.g. Lab Coordinator" required>
+            </div>
+
+            <div class="input-block">
+              <label for="contactEmail">Department Email</label>
+              <input type="email" id="contactEmail" placeholder="e.g. lab@college.edu" required>
+            </div>
+
+            <div class="input-block">
+              <label for="targetLab">Target Laboratory</label>
+              <select id="targetLab">
+                <option value="Lab 1">Computer Science Lab 1 (Main Block)</option>
+                <option value="Lab 2">BCA Programming Lab 2</option>
+                <option value="Library">Central Digital Library</option>
+                <option value="Server">Department Server Room</option>
+              </select>
+            </div>
+
+            <div class="input-block">
+              <label for="feedbackMsg">Message / Audit Note</label>
+              <textarea id="feedbackMsg" rows="4" style="width: 100%; background: rgba(0,0,0,0.35); border: 1px solid var(--card-border); color: var(--text-pure); padding: 10px; border-radius: var(--radius-sm); font-size: 13.5px; outline: none;" placeholder="Enter schedule observations or hardware wattage notes..."></textarea>
+            </div>
+
+            <button type="submit" class="primary-btn" style="margin-top: 10px;">
+              Submit Audit Note
+            </button>
+            <div id="contactAck" style="display: none; margin-top: 12px; font-size: 13px; color: var(--accent-emerald); font-weight: 600;">
+              ✓ Note logged successfully for departmental review.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p><strong>Campus Energy Sentinel</strong> • Academic Green Computing Framework</p>
+      <p>Department of Computer Applications • BCA Semester 1 Project Deliverable</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactAck').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('attendantName').value = '';
+        document.getElementById('contactEmail').value = '';
+        document.getElementById('feedbackMsg').value = '';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

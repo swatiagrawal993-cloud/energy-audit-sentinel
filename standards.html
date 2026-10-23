@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACPI Standards & Benchmarks | Campus Energy Sentinel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Unified Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title-row">
+            <h1>Campus Energy Sentinel</h1>
+            <span class="version-tag">v2.4 • BCA Project</span>
+          </div>
+          <span class="brand-desc">IT Infrastructure Measuring & Eco-Optimizer</span>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <a href="index.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Live Measuring
+        </a>
+        <a href="standards.html" class="tab-btn active">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          ACPI Standards
+        </a>
+        <a href="about.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          About Project
+        </a>
+        <a href="contact.html" class="tab-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Contact & Support
+        </a>
+      </nav>
+
+      <div class="nav-status">
+        <span class="live-dot"></span>
+        <span class="live-label">Measuring Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    <div class="glass-card wide-card">
+      <div class="card-head center-head">
+        <span class="section-badge">Hardware Power States</span>
+        <h2>ACPI Specifications & Empirical Benchmarks</h2>
+        <p>Advanced Configuration and Power Interface (ACPI v6.5) standards applied to academic IT systems</p>
+      </div>
+
+      <!-- Standards Grid -->
+      <div class="standards-grid">
+        <div class="standard-card">
+          <div class="std-badge s0">State G0 / S0</div>
+          <h3>Active Instructional Execution</h3>
+          <div class="std-draw">107W – 162W</div>
+          <p>CPU cores, RAM buses, SSD drives, and LED monitor backlights operate at nominal thermal envelope. Maintained during practical shifts for compiling and programming.</p>
+        </div>
+
+        <div class="standard-card">
+          <div class="std-badge idle">State G0 / S0 (Idle)</div>
+          <h3>Unattended Desktop Idle</h3>
+          <div class="std-draw">65W – 80W</div>
+          <p>The operating system runs without active student input. Hardware draws roughly 45% of peak load. Represents the primary target of departmental waste elimination.</p>
+        </div>
+
+        <div class="standard-card">
+          <div class="std-badge s3">State G1 / S3</div>
+          <h3>Low-Power Sleep (Suspend to RAM)</h3>
+          <div class="std-draw">3.5W – 5.5W</div>
+          <p>The CPU is halted, auxiliary fans cease rotation, and display panels power off. Main system memory remains energized to preserve student IDE sessions.</p>
+        </div>
+
+        <div class="standard-card">
+          <div class="std-badge s5">State G2 / S5</div>
+          <h3>Soft-Off / Complete Shutdown</h3>
+          <div class="std-draw">0.7W – 1.7W</div>
+          <p>All main power rails disengage. Only the Real-Time Clock (RTC) and network Wake-on-LAN (WOL) circuitry receive standby trickle power.</p>
+        </div>
+      </div>
+
+      <!-- Component Breakdown Table -->
+      <div class="table-responsive" style="margin-top: 30px;">
+        <h3 style="color: var(--text-pure); margin-bottom: 12px; font-size: 16px;">Empirical Component Power Breakdown (Core i5 Lab Terminal)</h3>
+        <table class="benchmark-table">
+          <thead>
+            <tr>
+              <th>Hardware Component</th>
+              <th>Full Active Draw (S0)</th>
+              <th>Desktop Idle Draw</th>
+              <th>Sleep State (S3)</th>
+              <th>Shutdown State (S5)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Intel Core i5 CPU + Cooler</strong></td>
+              <td>65.0 Watts</td>
+              <td>18.5 Watts</td>
+              <td>0.0 Watts</td>
+              <td>0.0 Watts</td>
+            </tr>
+            <tr>
+              <td><strong>Motherboard + 16GB RAM</strong></td>
+              <td>22.0 Watts</td>
+              <td>16.0 Watts</td>
+              <td>3.5 Watts</td>
+              <td>0.5 Watts</td>
+            </tr>
+            <tr>
+              <td><strong>21.5" LED Backlit Monitor</strong></td>
+              <td>22.0 Watts</td>
+              <td>20.0 Watts</td>
+              <td>0.5 Watts</td>
+              <td>0.2 Watts</td>
+            </tr>
+            <tr>
+              <td><strong>Internal Power Supply (PSU Losses)</strong></td>
+              <td>12.5 Watts</td>
+              <td>6.5 Watts</td>
+              <td>0.8 Watts</td>
+              <td>0.5 Watts</td>
+            </tr>
+            <tr style="border-top: 2px solid var(--accent-emerald);">
+              <td><strong>Total Node Subsystem Draw</strong></td>
+              <td><strong style="color: var(--text-pure);">121.5 Watts</strong></td>
+              <td><strong style="color: var(--accent-red);">61.0 Watts</strong></td>
+              <td><strong style="color: var(--accent-amber);">4.8 Watts</strong></td>
+              <td><strong style="color: var(--accent-emerald);">1.2 Watts</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p><strong>Campus Energy Sentinel</strong> • Academic Green Computing Framework</p>
+      <p>Department of Computer Applications • BCA Semester 1 Project Deliverable</p>
+    </div>
+  </footer>
+</body>
+</html>
